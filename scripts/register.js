@@ -29,9 +29,16 @@ let salon = {
     ]
 }
 function displayPetName(){//create the fn
-for(let i=0;i<salon.pets.lenght; i++){
-    console.log(salon.pets[0].name);
+const petCountElement = document.getElementById("count");
+const petListElemnt = document.getElementById("petList");
+for (let i = 0; i < salon.pets.length; i++){
+    const pet = salon.pets[i];
+    const listItem = document.createElement("li");
+    listItem.textContent = pet.name
+    petListElemnt.appendChild(listItem);
+    console.log(salon.pets[i].name);
 }
+petCountElement.textContent = salon.pets.length;
 }
 
 displayPetName();//run the fn
