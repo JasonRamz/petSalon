@@ -1,0 +1,40 @@
+/*global*/
+*{
+    padding: 0;
+    margin: 0;
+}
+:root{
+    --primary:#8e9aaf;
+    --secondary:#cbc0d3;
+    --third:#efd3d7;
+    --fourth:#feeafa;
+    --fifth:#dee2ff;
+}
+body{
+    background-color: var(--secondary);
+}
+p{
+    line-height: 2;
+}
+/*utilities*/
+.grid-two-container{
+    display: flex;
+    justify-content: space-between;
+}
+/*header*/
+.site-header{
+    background-color: var(--primary);
+    height: 15rem;
+}
+/*menu*/
+.menu{
+    background-color: var(--third);
+}
+/*main*/
+
+.img-container{
+    background-color: var(--fourth);
+}
+.home-img{
+    border-radius: 50%;
+}
