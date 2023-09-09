@@ -36,7 +36,6 @@ for (let i = 0; i < salon.pets.length; i++){
     const listItem = document.createElement("li");
     listItem.textContent = pet.name
     petListElemnt.appendChild(listItem);
-    console.log(salon.pets[i].name);
 }
 petCountElement.textContent = salon.pets.length;
 }
