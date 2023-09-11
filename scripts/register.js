@@ -7,37 +7,69 @@ let salon = {
         zip:"20025",
         Number:"504",
     },
-    pets:[
-        {
-            name:"scooby",
-            age:"12",
-            breed:"chiva",
-            service:"grooming"
-        },
-        {
-            name:"chango",
-            age:"154",
-            breed:"chihuahua",
-            service:"nailclipping"
-        },
-        {
-            name:"bulldog",
-            age:"800BC",
-            breed:"chihuahua",
-            service:"shower"
-        }
-    ]
+    pets:[]
 }
-function displayPetName(){//create the fn
-const petCountElement = document.getElementById("count");
-const petListElemnt = document.getElementById("petList");
-for (let i = 0; i < salon.pets.length; i++){
-    const pet = salon.pets[i];
-    const listItem = document.createElement("li");
-    listItem.textContent = pet.name
-    petListElemnt.appendChild(listItem);
+//constructor 
+function Pet(n,a,b,s,g){
+    this.name=n;
+    this.age=a;
+    this.breed=b;
+    this.service=s;
+    this.gender=g;
+
 }
-petCountElement.textContent = salon.pets.length;
+//inputs
+const inputName = document.getElementById("txtName");
+const inputAge = document.getElementById("txtAge");
+const inputBreed = document.getElementById("txtBreed");
+const inputService = document.getElementById("txtService");
+const inputGender = document.getElementById("txtGender");
+//validation
+function isValid(aPet){
+    if(aPet.name==""){
+        validation=false;
+        alert("Please add a pet name");
+    }
+    if(aPet.age==""){
+        validation=false;
+        alert("Please add a pet age");
+    }
+    if(aPet.breed==""){
+        validation=false;
+        alert("Please add a pet breed");
+    }
+    if(aPet.service==""){
+        validation=false;
+        alert("Please add a pet service");
+    }
+    if(aPet.gender==""){
+        validation=false;
+        alert("Please add a pet gender");
+    }
+    return validation;
 }
 
-displayPetName();//run the fn
+function register(){
+    //get the values from the html 
+    let newPet = new Pet(inputName.value,inputAge.value,inputBreed.value,inputService.value,inputGender.value);
+    if(isValid(newPet)==true){//validation if is valid 
+        salon.pets.push(newPet);//adding to the array
+        console.log(salon.pets);
+        clearInput();
+    }
+}
+function clearInput(){
+    inputName.value="";
+    inputAge.value="";
+    inputBreed.value="";
+    inputService.value="";
+    inputGender.value="";
+}
+
+function init(){
+    let pet1 = new Pet("Scooby",60,"Dabe","Grooming","Male");
+    let pet2 = new Pet("chompy",25,"chihuahua","Haircut","Female");
+    let pet3 = new Pet("cookie",5,"dalmatian","NailClipping","Male");
+    salon.pets.push(pet1,pet2,pet3);//adding to the array
+}
+window.onload=init;//waiting to render the HTML first

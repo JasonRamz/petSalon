@@ -3,24 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/mystyles.css">
     <title>register</title>
 </head>
 <body>
     <!--a great background color -->
     <!--img src:""-->
     <header>
-        <h1>The fashion Pet</h1>
+        <h1 class=site-registration>The fashion Pet</h1>
     </header>
 
     <main>
-        <h2>Registration</h2>
-
-        <!--add image of content here -->
-        <!--img src:""-->
-        <div id="petCount">Number of pets Registered:<span id="count">0</span></div>
-        <ul id="petList">
-
-        </ul>
+        <h2 class="registration">Registration</h2>
+        <div>
+            <div class="registration">
+                <label>Name:</label>
+                <input type="text" id="txtName"><!--Id is to give a property to the Js-->
+            </div>
+            <div class="registration">
+                <label>Age</label>
+                <input type="number" id="txtAge">
+            </div>
+            <div class="registration">
+                <label>Breed</label>
+                <input type="text" id="txtBreed">
+            </div>
+            <div class="registration">
+                <label>Gender</label>
+                <input type="text" id="txtGender">
+            </div>
+            <div class="registration">
+                <label>Service:</label>
+                <select id="txtService">
+                    <option value="nails">Nails cut</option>
+                    <option value="haircut">Haircut</option>
+                    <option value="shampoo">Shampoo</option>
+                    <option value="gender">Gender</option>
+                </select>
+            </div>
+            <div class="registration">
+                <button class="btn" onclick="register();">Register</button>
+            </div>
+        </div>
     </main>
 
     <script src="./scripts/register.js"></script>
