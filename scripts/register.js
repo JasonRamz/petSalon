@@ -72,6 +72,7 @@ function register(){
     if(isValid(newPet)==true){//validation if is valid 
         salon.pets.push(newPet);//adding to the array
         displayCards();
+        displayTable();
         clearInput();
     };
 }
@@ -88,6 +89,7 @@ function init(){
     let pet2 = new Pet("chompy",25,"chihuahua","Haircut","Female");
     let pet3 = new Pet("cookie",5,"dalmatian","NailClipping","Male");
     salon.pets.push(pet1,pet2,pet3);//adding to the array
+    displayTable();
     displayCards();
 }
 window.onload=init;//waiting to render the HTML first
