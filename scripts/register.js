@@ -26,6 +26,14 @@ const inputService = document.getElementById("txtService");
 const inputGender = document.getElementById("txtGender");
 //validation
 function isValid(aPet){
+    let validation=true;
+    inputName.classList.remove("alert-error");
+    inputService.classList.remove("alert-error");
+    inputBreed.classList.remove("alert-error");
+    inputAge.classList.remove("alert-error");
+    inputGender.classList.remove("alert-error");
+
+
     if(aPet.name==""){
         validation=false;
         alert("Please add a pet name");
@@ -46,17 +54,26 @@ function isValid(aPet){
         validation=false;
         alert("Please add a pet gender");
     }
+    if(aPet.name==""){
+        validation=false;
+        inputName.classList.add("alert-error");
+        inputAge.classList.add("alert-error");
+        inputGender.classList.add("alert-error");
+        inputBreed.classList.add("alert-error");
+        inputService.classList.add("alert-error");
+    }
     return validation;
 }
 
 function register(){
     //get the values from the html 
     let newPet = new Pet(inputName.value,inputAge.value,inputBreed.value,inputService.value,inputGender.value);
+    
     if(isValid(newPet)==true){//validation if is valid 
         salon.pets.push(newPet);//adding to the array
-        console.log(salon.pets);
+        displayCards();
         clearInput();
-    }
+    };
 }
 function clearInput(){
     inputName.value="";
@@ -71,5 +88,6 @@ function init(){
     let pet2 = new Pet("chompy",25,"chihuahua","Haircut","Female");
     let pet3 = new Pet("cookie",5,"dalmatian","NailClipping","Male");
     salon.pets.push(pet1,pet2,pet3);//adding to the array
+    displayCards();
 }
 window.onload=init;//waiting to render the HTML first
