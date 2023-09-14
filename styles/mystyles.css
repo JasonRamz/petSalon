@@ -16,6 +16,12 @@ body{
 p{
     line-height: 2;
 }
+h2{
+    text-align: center;
+}
+legend{
+    text-align: center;
+}
 /*utilities*/
 .grid-two-container{
     display: flex;
@@ -24,10 +30,13 @@ p{
 .alert-error{
     background-color: rgb(231, 149, 149);
 }
+.alert-search{
+    border-left: 10px solid green;
+}
 /*header*/
 .site-header{
     background-color: var(--primary);
-    height: 15rem;
+    height: 10rem;
 }
 /*menu*/
 .menu{
