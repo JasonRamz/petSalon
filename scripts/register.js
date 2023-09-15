@@ -11,7 +11,7 @@ let salon = {
 }
 //constructor 
 let x=0;
-function Pet(n,a,b,s,g,p,c){
+function Pet(n,a,b,s,g,p,c,sea){
     this.name=n;
     this.age=a;
     this.breed=b;
@@ -19,6 +19,7 @@ function Pet(n,a,b,s,g,p,c){
     this.gender=g;
     this.phone=p;
     this.payment=c;
+    this.search=sea;
     this.id=x++;
 
 }
@@ -29,7 +30,7 @@ const inputBreed = document.getElementById("txtBreed");
 const inputService = document.getElementById("txtService");
 const inputGender = document.getElementById("txtGender");
 const inputPhone = document.getElementById("txtPhone");
-const inputSearch = document.getElementById("btnSearch");
+const inputSearch = document.getElementById("txtSearch");
 const inputPayment = document.getElementById("txtPayment");
 //validation
 function isValid(aPet){
@@ -111,20 +112,24 @@ function deletePet(petID){
     salon.pets.splice(deleteIndex,1);//remove the element from the array
     document.getElementById(petID).remove();
 }
-function search(){
-    let inputSearchalert=document.getElementById("txtSearch").value;
-    console.log(inputSearch);
-    for(let i=0;i<salon.pets.length;i++){
-        let pet=salon.pets[i];
+function search() {
+    let inputSearchElement = document.getElementById("txtSearch");
+    
+    if (inputSearchElement) {
+        let inputSearch = inputSearchElement.value.toLowerCase();
+        console.log(inputSearch);
+        
+        for (let i = 0; i < salon.pets.length; i++) {
+            let pet = salon.pets[i];
 
-        if(inputSearch.toLowerCase()===pet.name.toLowerCase()){
-            document.getElementById(pet.id).classList.add("alert-search");
-        }else{
-            document.getElementById(pet.id).classList.remove("alert-search");
+            if (inputSearch === pet.name.toLowerCase()) {
+                document.getElementById(pet.id).classList.add("alert-search");
+            } else {
+                document.getElementById(pet.id).classList.remove("alert-search");
+            }
         }
     }
 }
-
 
 function init(){
     let pet1 = new Pet("Scooby",60,"Dane","Grooming","Male","619-222-2222","credit");
