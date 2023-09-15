@@ -41,10 +41,15 @@ legend{
 /*menu*/
 .menu{
     background-color: var(--third);
+    height: 8rem;
 }
 /*main*/
 .img-container{
     background-color: var(--fourth);
+}
+/*footer*/
+.site-footer{
+    background-color: var(--fifth);
 }
 .home-img{
     border-radius: 50%;
